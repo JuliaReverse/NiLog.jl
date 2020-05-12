@@ -1,6 +1,6 @@
 using NiLog
 using Test
 
-@testset "NiLog.jl" begin
-    # Write your own tests here.
+@testset "base" begin
+    include("base.jl")
 end

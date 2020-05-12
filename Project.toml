@@ -3,6 +3,11 @@ uuid = "07b9913f-4636-4bc8-9841-9af50769c5b0"
 authors = ["GiggleLiu"]
 version = "0.1.0"
 
+[deps]
+LogarithmicNumbers = "aa2f6b4e-9042-5d33-9679-40d3a6b85899"
+NiLang = "ab4ef3a6-0b42-11ea-31f6-e34652774712"
+TropicalNumbers = "b3a74e9c-7526-4576-a4eb-79c0d4c32334"
+
 [compat]
 julia = "1.4"
 

@@ -1,5 +1,10 @@
 module NiLog
+using TropicalNumbers
+using LogarithmicNumbers
+using NiLang, NiLang.AD
 
-greet() = print("Hello World!")
+include("base.jl")
+include("blas.jl")
+include("ieinsum.jl")
 
 end # module
