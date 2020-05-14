@@ -1,41 +1,16 @@
-export igemm!, igemv!, isum
+export igemm!, igemv!, isum, unsafe_addto
 export maxloc
 
-const LogLikeNumber{T} = Union{ULogarithmic{T}, Tropical{T}}
+export ULog
+const ULog{T} = ULogarithmic{T}
+const LogLikeNumber{T} = Union{ULog{T}, Tropical{T}}
 
 const TropicalG{T,TG} = Tropical{GVar{T,TG}}
-
-@i @inline function :(*=)(+)(z::T, x::T, y::T) where T<:Tropical
-    @invcheckoff if (content(x) > content(y), ~)
-        content(z) += identity(content(x))
-    else
-        content(z) += identity(content(y))
-    end
-end
-
-@i @inline function (:*=(identity))(x::T, y::T) where T<:LogLikeNumber
-    content(x) += identity(content(y))
-end
-
-@i @inline function (:*=(*))(out!::T, x::T, y::T) where T<:LogLikeNumber
-    content(out!) += content(x) + content(y)
-end
-
-export tropical_muladd
-# branch should be initialized to false.
-@i @inline function tropical_muladd(out!::T, x::T, y::T, branch::Bool) where T<:Tropical
-	x *= identity(y)
-	@invcheckoff if (out! < x, branch)
-		FLIP(branch)
-		NiLang.SWAP(out!, x)
-	end
-end
-
-maxloc(v::AbstractVector) = findmax(v)[2]
+const ULogG{T,TG} = ULogarithmic{GVar{T,TG}}
 
 # Happy Pirate!!!!!
-ULogarithmic{T}(gv::T) where T<:Real = exp(ULogarithmic{T}, gv)
-ULogarithmic(gv::T) where T<:Real = exp(ULogarithmic, gv)
+ULog{T}(gv::T) where T<:Real = exp(ULogarithmic{T}, gv)
+ULog(gv::T) where T<:Real = exp(ULogarithmic, gv)
 
 import TropicalNumbers: content
 @fieldview content(x::ULogarithmic) = x.log
@@ -54,7 +29,7 @@ for T in [:Tropical, :ULogarithmic]
     @eval Base.zero(::Type{$T{GVar{T,T}}}) where T = GVar(zero(T))
 end
 
-function NiLang.loaddata(::Type{Array{LogLikeNumber{GVar{T,T}},N}}, data::Array{LogLikeNumber{T},N}) where {T,N}
+function NiLang.loaddata(::Type{Array{<:LogLikeNumber{GVar{T,T}}}}, data::Array{<:LogLikeNumber{T}}) where {T}
     GVar.(data)
 end
 import NiLang.NiLangCore: deanc

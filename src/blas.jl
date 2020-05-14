@@ -40,7 +40,7 @@ end
 		branch_keeper ← zeros(Bool, length(v))
 		anc ← zero(T)
 		for i = 1:length(v)
-			if (anc.n < v[i].n, branch_keeper[i])
+			@inbounds if (anc.n < v[i].n, branch_keeper[i])
 				FLIP(branch_keeper[i])
 				NiLang.SWAP(anc, v[i])
 			end
@@ -49,5 +49,3 @@ end
 	out!.n += identity(anc.n)
 	~@routine
 end
-
-

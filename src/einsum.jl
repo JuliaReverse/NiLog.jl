@@ -1,11 +1,10 @@
-using OMEinsum: EinCode, @ein_str
-
-export ieinsum!
+using TupleTools
+export einsum!
 
 """
-	ieinsum!(code::EinCode{ixs, iy}, xs, y::AbstractArray{T}) where {ixs, iy, NO,T<:Tropical}
+	einsum!(ixs, xs, iy, y::AbstractArray{T})
 
-A naive reversible implementation of `einsum!`
+A naive reversible implementation of `einsum` function for tropical numbers.
     * `ixs`: input tensor indices,
     * `xs`: input tensors,
     * `iy`: output tensor indices,
@@ -13,7 +12,7 @@ A naive reversible implementation of `einsum!`
 
 # NOTE: this function is general purposed and slow!
 """
-@i function ieinsum!(code::EinCode{ixs, iy}, xs, y::AbstractArray{T}) where {ixs, iy, NO,T<:Tropical}
+@i function einsum!(ixs, xs, iy, y::AbstractArray{T}) where {T<:Tropical}
 	@routine @invcheckoff begin
 	    # outer legs and inner legs
 	    outer_indices ← unique(iy)
