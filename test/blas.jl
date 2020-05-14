@@ -1,4 +1,4 @@
-using NiLog
+using NiLogLikeNumbers
 
 @testset "Tropical algebra" begin
 	Random.seed!(4)

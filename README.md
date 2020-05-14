@@ -1,6 +1,6 @@
-# NiLog
+# NiLogLikeNumbers
 
-Reversible Logarithmic and Tropical bumber systems.
+Reversible logarithmic and Tropical number systems.
 
-[![Build Status](https://travis-ci.com/JuliaReverse/NiLog.jl.svg?branch=master)](https://travis-ci.com/JuliaReverse/NiLog.jl)
-[![Codecov](https://codecov.io/gh/JuliaReverse/NiLog.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/JuliaReverse/NiLog.jl)
+[![Build Status](https://travis-ci.com/JuliaReverse/NiLogLikeNumbers.jl.svg?branch=master)](https://travis-ci.com/JuliaReverse/NiLogLikeNumbers.jl)
+[![Codecov](https://codecov.io/gh/JuliaReverse/NiLogLikeNumbers.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/JuliaReverse/NiLogLikeNumbers.jl)

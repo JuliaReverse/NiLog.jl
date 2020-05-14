@@ -1,4 +1,4 @@
-using NiLog
+using NiLogLikeNumbers
 using Test
 
 @testset "einsum" begin

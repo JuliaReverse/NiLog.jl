@@ -1,4 +1,4 @@
-using TropicalNumbers, NiLog
+using TropicalNumbers, NiLogLikeNumbers
 using Test, NiLang.AD, NiLang, Random
 using ForwardDiff
 
