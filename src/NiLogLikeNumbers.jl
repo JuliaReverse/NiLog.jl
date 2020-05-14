@@ -1,4 +1,4 @@
-module NiLogNumbers
+module NiLogLikeNumbers
 using TropicalNumbers
 using LogarithmicNumbers
 using NiLang, NiLang.AD
