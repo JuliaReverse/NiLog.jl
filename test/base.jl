@@ -9,6 +9,9 @@ using ForwardDiff
     @test grad(x) isa Tropical{Float64}
     @test (~GVar)(GVar(Tropical(0.4))) == x
 
+    x = GVar(Tropical(0))
+    @test zero(x) isa Tropical{GVar{Int, Int}}
+
     x = ULog(0.4)
 	@test (~ULog)(x) == 0.4
     @test GVar(x) isa ULog{<:GVar}

@@ -26,7 +26,7 @@ for T in [:Tropical, :ULogarithmic]
     @eval Base.one(x::$T{GVar{T,GT}}) where {T, GT} = one($T{GVar{T,GT}})
     @eval Base.one(::Type{$T{GVar{T,GT}}}) where {T,GT} = $T(GVar(zero(T), zero(GT)))
     @eval Base.zero(x::$T{GVar{T,GT}}) where {T,GT} =zero($T{GVar{T,GT}})
-    @eval Base.zero(::Type{$T{GVar{T,T}}}) where T = GVar(zero(T))
+    @eval Base.zero(::Type{$T{GVar{T,T}}}) where T = $T(GVar(zero(T), zero(T)))
 end
 
 function NiLang.loaddata(::Type{Array{<:LogLikeNumber{GVar{T,T}}}}, data::Array{<:LogLikeNumber{T}}) where {T}

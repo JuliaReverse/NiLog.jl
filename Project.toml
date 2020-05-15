@@ -11,6 +11,11 @@ TupleTools = "9d95972d-f1c8-5527-a6e0-b4b365fa01f6"
 
 [compat]
 julia = "1.4"
+NiLang="0.3,0.4"
+LogarithmicNumbers="0.3,0.4"
+TropicalNumbers="0.1"
+TupleTools="1.0,1.2"
+
 
 [extras]
 ForwardDiff = "f6369f11-7733-5829-9624-2563aa707210"
