@@ -11,7 +11,7 @@ TupleTools = "9d95972d-f1c8-5527-a6e0-b4b365fa01f6"
 
 [compat]
 julia = "1.4"
-NiLang="0.3,0.4"
+NiLang="0.4"
 LogarithmicNumbers="0.3,0.4"
 TropicalNumbers="0.1"
 TupleTools="1.0,1.2"
